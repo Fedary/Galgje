@@ -1,0 +1,342 @@
+﻿<Window x:Class="Galgje_BenSleurs.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Galgje_BenSleurs"
+        mc:Ignorable="d"
+        Title="Galgje" Height="450" Width="800">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top"
+              FontSize="14"
+              Name="Menu_Main">
+            <MenuItem Header="Spel"
+                      Name="MU_Spel">
+                <MenuItem Header="Nieuw spel starten"
+                          Click="B_Nieuw_Click"
+                          Name="MU_Start">
+
+                </MenuItem>
+                <MenuItem Header="Spel afsluiten"
+                          Click="SpelAfsluiten"
+                          Name="MU_Sluit">
+                    
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Features"
+                      Name="MU_Features">
+                <MenuItem Header="Highscores"
+                          Name="MU_Highscores" Click="MU_Highscores_Click">
+                    
+                </MenuItem>
+                <MenuItem Header="Timer instellen"
+                          Name="MU_timer" Click="MU_timer_Click">
+                    
+                </MenuItem>
+                
+            </MenuItem>
+            <MenuItem Header="Hint" 
+                      Name ="MU_Hint" Click="MU_Hint_Click"
+                      IsEnabled="false">
+                
+            </MenuItem>
+        </Menu>
+        
+        <Grid Name="Grid_Main">
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="0.33*"/>
+                <ColumnDefinition Width="0.33*"/>
+                <ColumnDefinition Width="0.33*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="0.25*"/>
+                <RowDefinition Height="0.25*"/>
+            </Grid.RowDefinitions>
+
+            <Label
+                Name="B_Raad"
+                Grid.Column="0"
+                Margin="15,15,15,15"
+                FontSize="28"
+                FontWeight="DemiBold"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+              
+                Foreground="black"
+                Background="White"
+                MaxWidth="220"
+                MaxHeight="75"
+                BorderBrush="Black"
+                BorderThickness="2"
+                IsEnabled="False" MouseDown="B_Raad_Click"
+                MouseEnter="MouseEnter_Label"
+                MouseLeave="MouseLeave_Label"
+                Visibility="Hidden">
+                Raad
+            </Label>
+            <Label
+                Name="B_Nieuw"
+                Grid.Column="1"
+                Margin="15,15,15,15"
+                FontSize="28"
+                FontWeight="DemiBold"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Foreground="black"
+                Background="White"
+                MaxWidth="220"
+                MaxHeight="75"
+                BorderBrush="Black"
+                BorderThickness="2"
+                IsEnabled="True" MouseDown="B_Nieuw_Click"
+                MouseEnter="MouseEnter_Label"
+                MouseLeave="MouseLeave_Label">
+                Nieuw spel
+            </Label>
+            <Label
+                Name="B_Verberg"
+                Grid.Column="2"
+                Margin="15,15,15,15"
+                FontSize="28"
+                FontWeight="DemiBold"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Foreground="Black"
+                Background="White"
+                MaxWidth="220"
+                MaxHeight="75"
+                BorderBrush="Black"
+                BorderThickness="2"
+                IsEnabled="False" MouseDown="B_Verberg_Click"
+                MouseEnter="MouseEnter_Label"
+                MouseLeave="MouseLeave_Label"
+                Visibility="hidden">
+                Verberg Woord
+            </Label>
+            <Label
+                Name="B_SinglePlayer"
+                Grid.Column="0"
+                Grid.Row="0"
+                Margin="15,15,15,15"
+                FontSize="28"
+                FontWeight="DemiBold"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Foreground="Black"
+                Background="White"
+                MaxWidth="220"
+                MaxHeight="75"
+                BorderBrush="Black"
+                BorderThickness="2"
+                IsEnabled="True"
+                MouseEnter="MouseEnter_Label"
+                MouseLeave="MouseLeave_Label"
+                Visibility="hidden" MouseDown="B_SinglePlayer_MouseDown">
+                SinglePlayer
+            </Label>
+            <Label
+                Name="B_MultiPlayer"
+                Grid.Column="1"
+                Grid.Row="0"
+                Margin="15,15,15,15"
+                FontSize="28"
+                FontWeight="DemiBold"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Foreground="Black"
+                Background="White"
+                MaxWidth="220"
+                MaxHeight="75"
+                BorderBrush="Black"
+                BorderThickness="2"
+                IsEnabled="True"
+                MouseEnter="MouseEnter_Label"
+                MouseLeave="MouseLeave_Label"
+                Visibility="hidden" MouseDown="B_MultiPlayer_MouseDown">
+                MultiPlayer
+            </Label>
+
+            <Label
+            Name="L_Timer"
+            Grid.Column="2"
+            FontSize="60"
+            FontWeight="DemiBold"
+            Visibility="Hidden"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+
+            </Label>
+            <TextBox
+                Name="TB_Input"
+                Grid.Row="1"
+                Grid.ColumnSpan="3"
+                Margin="20,32,20,32"
+                Height="40"
+                FontSize="26"
+                TextAlignment="Center"
+                IsEnabled="False" KeyDown="TB_Input_KeyDown" PreviewTextInput="TB_Input_PreviewTextInput">
+            </TextBox>
+            <!--TextBlock voor algemene info-->
+            <TextBlock
+            Name="TBL_Info"
+            Grid.Row="2"
+            Grid.ColumnSpan="4"
+            FontSize="28"
+            FontWeight="DemiBold"
+            TextAlignment="Center"
+            VerticalAlignment="Center"
+            TextWrapping="Wrap"
+            Visibility="Visible">
+            Start een nieuw spel!
+            </TextBlock>
+            <!--Textblock om gameover scherm te laten zien-->
+            <TextBlock
+            Name="TBL_GameOver"
+            Grid.Row="2"
+            Grid.ColumnSpan="2"
+            Grid.RowSpan="2"
+            FontSize="28"
+            FontWeight="DemiBold"
+            Margin="15"
+            TextAlignment="center"
+            TextWrapping="Wrap"
+            Visibility="Hidden">
+            
+            </TextBlock>
+
+            <Grid Name="Grid_Juist"
+              Grid.Row="2"
+              Grid.Column="1">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0.5*"/>
+                </Grid.RowDefinitions>
+
+                <Label
+                Name="L_Juist"
+                Grid.Row="0"
+                FontSize="28"
+                FontWeight="DemiBold"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Visibility="Hidden">
+                    Juiste Letters:
+                </Label>
+
+                <TextBlock
+                Name="TBL_Juist_Output"
+                Grid.Row="1"
+                FontSize="20"
+                FontWeight="DemiBold"
+                TextWrapping="Wrap"
+                Visibility="Hidden"
+                TextAlignment="Center"
+                >
+                </TextBlock>
+
+            </Grid>
+
+            <Grid Name="Grid_Fout"
+              Grid.Row="3"
+              Grid.Column="1">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0.5*"/>
+                </Grid.RowDefinitions>
+
+                <Label
+                Name="L_Fout"
+                Grid.Row="0"
+                FontSize="28"
+                FontWeight="DemiBold"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Visibility="Hidden">
+                    Foute Letters:
+                </Label>
+
+                <Label
+                Name="L_Fout_Output"
+                Grid.Row="1"
+                FontSize="20"
+                FontWeight="DemiBold"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Visibility="Hidden">
+                </Label>
+            </Grid>
+
+            <Grid
+            Name="Grid_Levens"
+            Grid.Row="2"
+            Grid.RowSpan="2">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.25*"/>
+                    <RowDefinition Height="0.75*"/>
+                </Grid.RowDefinitions>
+
+                <Label
+            Name="L_Levens"
+            Grid.Row="0"
+            FontSize="28"
+            FontWeight="DemiBold"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            Visibility="Hidden">
+                </Label>
+
+                <Label
+            Grid.Row="1"
+            Name="L_Foute_Woorden"
+            FontSize="18"
+            FontWeight="SemiBold">
+                </Label>
+
+
+            </Grid>
+
+            <Image
+            Grid.Row="2"
+            Grid.Column="2"
+            Grid.RowSpan="2"
+            Name="IMG_Galg">
+
+
+            </Image>
+
+            <!--copy van main grid op de achtergrond, om borders in te maken voor
+            de disco-->
+            <Grid Name="Grid_Background"
+              Grid.RowSpan="4"
+              Grid.ColumnSpan="4">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.33*"/>
+                    <ColumnDefinition Width="0.33*"/>
+                    <ColumnDefinition Width="0.33*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.25*"/>
+                    <RowDefinition Height="0.25*"/>
+                    <RowDefinition Height="0.25*"/>
+                    <RowDefinition Height="0.25*"/>
+
+                </Grid.RowDefinitions>
+            </Grid>
+
+
+
+
+        </Grid>
+    </DockPanel>
+
+
+
+
+</Window>

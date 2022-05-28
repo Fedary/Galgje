@@ -1,0 +1,81 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\buzzer.mp3" />
+    <None Remove="Assets\Galg1.png" />
+    <None Remove="Assets\Galg10.png" />
+    <None Remove="Assets\Galg2.png" />
+    <None Remove="Assets\Galg3.png" />
+    <None Remove="Assets\Galg4.png" />
+    <None Remove="Assets\Galg5.png" />
+    <None Remove="Assets\Galg6.png" />
+    <None Remove="Assets\Galg7.png" />
+    <None Remove="Assets\Galg8.png" />
+    <None Remove="Assets\Galg9.png" />
+    <None Remove="Assets\SpanishFlea.mp3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Galg10.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <COMReference Include="WMPLib">
+      <VersionMinor>0</VersionMinor>
+      <VersionMajor>1</VersionMajor>
+      <Guid>6bf52a50-394a-11d3-b153-00c04f79faa6</Guid>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>false</Isolated>
+      <EmbedInteropTypes>true</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\buzzer.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\SpanishFlea.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Galg1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Galg2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Galg3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Galg4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Galg5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Galg6.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Galg7.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Galg8.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Galg9.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>
